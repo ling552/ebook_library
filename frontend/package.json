@@ -1,0 +1,16 @@
+{
+  "name": "ebook-reader-frontend",
+  "version": "1.0.0",
+  "description": "Online ebook reader frontend",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "axios": "^0.24.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0"
+  },
+  "proxy": "http://book.ling00.top"
+} 

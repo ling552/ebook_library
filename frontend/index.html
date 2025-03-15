@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线电子书阅读器</title>
+    <link rel="stylesheet" href="styles.css">
+     <!-- <link rel="stylesheet" href="./src/styles/main.css"> -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>我的书架</h1>
+            <!-- <a href="../README.md" download="README.md" class="use-method">使用方法</a> -->
+            <div class="upload-container">
+                <input type="file" id="bookUpload" accept=".zip" style="display: none">
+                <button onclick="document.getElementById('bookUpload').click()">上传新书</button>
+            </div>
+        </header>
+
+        <main>
+            <div id="bookshelf" class="book-grid">
+                <!-- 书籍将通过JavaScript动态加载 -->
+            </div>
+
+            <div id="reader" class="reader-container" style="display: none">
+                <div class="reader-controls">
+                    <button id="prevPage" class="nav-button">&lt; 上一页</button>
+                    <div class="page-info">
+                        第 <span id="currentPage">1</span> 页 / 共 <span id="totalPages">0</span> 页
+                    </div>
+                    <button id="nextPage" class="nav-button">下一页 &gt;</button>
+                </div>
+                <div class="page-container">
+                    <div class="page-nav-area left" id="prevPageArea"></div>
+                    <img id="pageImage" src="" alt="书页">
+                    <div class="page-nav-area right" id="nextPageArea"></div>
+                </div>
+                <button id="backToShelf" class="back-button">返回书架</button>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html> 

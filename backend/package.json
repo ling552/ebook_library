@@ -1,0 +1,22 @@
+{
+  "name": "ebook-reader-backend",
+  "version": "1.0.0",
+  "description": "Online ebook reader backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.3.3",
+    "cors": "^2.8.5",
+    "multer": "^1.4.5-lts.1",
+    "extract-zip": "^2.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+} 

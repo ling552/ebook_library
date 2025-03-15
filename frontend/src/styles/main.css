@@ -1,0 +1,205 @@
+/* 添加书架背景 */
+body {
+  background: linear-gradient(to bottom, #f0e6d2, #d7c9b4),
+              url('wood-texture.jpg');
+  background-blend-mode: multiply;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* 书籍网格布局 */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 书籍卡片立体效果 */
+.book-card {
+  background: #fff9f0;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19),
+              0 6px 6px rgba(0,0,0,0.23),
+              inset 0 -2px 5px rgba(0,0,0,0.1);
+  transform: perspective(1000px) rotateY(5deg);
+  transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+  transform: perspective(1000px) rotateY(0deg);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+/* 书籍封面样式 */
+.book-cover {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 3px solid #d7c9b4;
+}
+
+/* 分类导航栏 */
+.category-nav {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(5px);
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #f0e6d2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4b395;
+  border-radius: 4px;
+}
+
+
+/* 新增按钮基础样式 */
+.btn {
+  padding: 12px 24px;
+  border: 2px solid #6d5c4a;
+  border-radius: 25px;
+  background: #fff9f0;
+  color: #6d5c4a;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 按钮悬停效果 */
+.btn:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+  background: linear-gradient(to bottom, #fff9f0, #f0e6d2);
+}
+
+/* 按钮点击动画 */
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* 主要操作按钮样式 */
+.btn-primary {
+  background: #8b7355;
+  border-color: #6d5c4a;
+  color: white;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(to bottom, #8b7355, #6d5c4a);
+}
+
+/* 次要按钮样式 */
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(3px);
+  border-color: rgba(109,92,74,0.5);
+}
+
+/* 图标按钮增强 */
+.btn-icon::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  vertical-align: middle;
+  background: currentColor;
+  mask-size: cover;
+}
+
+/* 阅读按钮图标 */
+.btn-read::before {
+  mask-image: url('icon-book.svg');
+}
+
+/* 书签按钮图标 */
+.btn-bookmark::before {
+  mask-image: url('icon-bookmark.svg');
+}
+
+
+/* 新增阅读器容器 */
+.book-reader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 800px;
+  height: 90vh;
+  background: #fff9f0;
+  box-shadow: 0 0 40px rgba(0,0,0,0.2);
+}
+
+/* 书页容器 */
+.page-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* 左右翻页热区 */
+.page-nav {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  z-index: 10;
+}
+
+.page-prev {
+  left: 0;
+  cursor: url('left-arrow.svg'), w-resize;
+}
+
+.page-next {
+  right: 0;
+  cursor: url('right-arrow.svg'), e-resize;
+}
+
+/* 书页内容 */
+.page-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  background: linear-gradient(to right, #faf5ed 0%, #fff9f0 5%, #fff9f0 95%, #faf5ed 100%);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+  overflow-y: auto;
+}
+
+/* 翻页动效 */
+.page-enter {
+  opacity: 0;
+  transform: perspective(1200px) rotateY(-180deg);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: perspective(1200px) rotateY(0deg);
+  transition: all 0.6s ease;
+}
+.page-exit {
+  opacity: 1;
+}
+.page-exit-active {
+  opacity: 0;
+  transform: perspective(1200px) rotateY(180deg);
+  transition: all 0.6s ease;
+}

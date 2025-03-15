@@ -1,0 +1,264 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    background: #f0ece3;  /* 米色背景 */
+    color: #2c3e50;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #8b4513;  /* 深棕色 */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.2em;
+    color: #f0ece3;  /* 米色文字 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.upload-container button {
+    padding: 12px 24px;
+    background-color: #d2691e;  /* 巧克力色 */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.upload-container button:hover {
+    background-color: #a0522d;  /* 深红褐色 */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
+    padding: 30px;
+    background: #deb887;  /* 实木色 */
+    border-radius: 15px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* 添加书架效果 */
+.book-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(90deg, #8b4513 0%, #a0522d 100%);
+    border-radius: 15px 15px 0 0;
+}
+
+.book-grid::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(90deg, #8b4513 0%, #a0522d 100%);
+    border-radius: 0 0 15px 15px;
+}
+
+.book-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    height: 360px;  /* 固定高度 */
+}
+
+.book-card:hover {
+    transform: translateY(-10px) rotate(2deg);
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.book-cover {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-bottom: 4px solid #9e5019;
+}
+
+.book-info {
+    padding: 15px;
+    text-align: center;
+    background: linear-gradient(to bottom, #fff, #f5f5f5);
+}
+
+.book-title {
+    font-size: 1.1em;
+    color: #2c3e50;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.reader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #2c3e50;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.reader-controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+.nav-button {
+    padding: 10px 20px;
+    background: #db7125;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    background: #a0522d;
+    transform: scale(1.1);
+}
+
+.page-container {
+    flex: 1;
+    display: flex;
+    position: relative;
+    background: #1a1a1a;
+}
+
+/* 添加翻页区域 */
+.page-nav-area {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.page-nav-area.left {
+    left: 0;
+}
+
+.page-nav-area.right {
+    right: 0;
+}
+
+.page-nav-area:hover {
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+#pageImage {
+    max-width: 100%;
+    max-height: calc(100vh - 140px);
+    object-fit: contain;
+    margin: auto;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.back-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 12px 24px;
+    background: #d2691e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:hover {
+    background: #a0522d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.page-info {
+    font-size: 1.2em;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.loading-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    z-index: 2000;
+}
+
+.no-books {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2em;
+    color: #8b4513;
+}
+
+.error-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2em;
+    color: #e74c3c;
+    background: rgba(231, 76, 60, 0.1);
+    border-radius: 10px;
+} 
+
+.use-method {
+    font-size: 1.5em;
+    text-decoration: none;
+    color: white;
+}
