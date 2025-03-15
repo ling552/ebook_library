@@ -2,6 +2,8 @@
 
 一个简单的在线电子书阅读系统，支持上传和阅读电子书。
 
+###前端：HTML+CSS+JavaScript 后端：Node.js
+
 ## 功能特点
 
 - 支持多种图片格式（jpg、jpeg、png）
